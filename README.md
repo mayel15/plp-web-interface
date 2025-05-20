@@ -4,7 +4,8 @@
 
 Cette application web constitue l'interface d'administration pour la plateforme IoT de gestion des hubs Raspberry Pi et des capteurs connectés. Elle permet aux administrateurs de superviser l'infrastructure, gérer les hubs et capteurs, valider les demandes d'accès et surveiller les activités du système.
 
-![Dashboard](./public/dashboard-preview.png)
+<img width="1439" alt="image" src="https://github.com/user-attachments/assets/a07b4086-7503-4bda-a98a-3ee24ad4aca8" />
+
 
 ## Technologies utilisées
 
