@@ -68,7 +68,9 @@ Cette application web constitue l'interface d'administration pour la plateforme 
 ```bash
 git clone https://github.com/mayel15/plp-web-interface.git
 cd plp-web-interface
+```
 
-2. Lancer Docker 
+2. Lancer Docker
+
 ```bash
 docker-compose up -d
