@@ -1,30 +1,63 @@
-# plp-web-interface
+# Plateforme IoT - Interface d'Administration
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+## Présentation
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/mayel15s-projects/v0-plp-web-interface)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/3tC2yQLiLLn)
+Cette application web constitue l'interface d'administration pour la plateforme IoT de gestion des hubs Raspberry Pi et des capteurs connectés. Elle permet aux administrateurs de superviser l'infrastructure, gérer les hubs et capteurs, valider les demandes d'accès et surveiller les activités du système.
 
-## Overview
+![Dashboard](./public/dashboard-preview.png)
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## Technologies utilisées
 
-## Deployment
+- **Next.js** (App Router) - Framework React pour le rendu côté serveur et le routage
+- **React** - Bibliothèque pour construire l'interface utilisateur
+- **TypeScript** - Langage de programmation avec typage statique
+- **Tailwind CSS** - Framework CSS utility-first
+- **shadcn/ui** - Composants UI réutilisables basés sur Radix UI
+- **Lucide React** - Bibliothèque d'icônes
 
-Your project is live at:
+## Fonctionnalités
 
-**[https://vercel.com/mayel15s-projects/v0-plp-web-interface](https://vercel.com/mayel15s-projects/plp-web-interface)**
+### Tableau de bord
+- Vue d'ensemble des indicateurs clés (hubs connectés, capteurs actifs, etc.)
+- Aperçu des hubs et capteurs avec leur statut
+- Liste des demandes d'accès en attente
+- Journal des activités récentes
 
-## Build your app
+### Gestion des Hubs
+- Liste des hubs Raspberry Pi avec leur statut (en ligne, hors ligne, en attente)
+- Enregistrement de nouveaux hubs via leur adresse MAC
+- Page de détail pour chaque hub avec:
+  - Informations techniques (modèle, OS, adresse IP, etc.)
+  - Statistiques d'utilisation (CPU, mémoire, stockage, réseau)
+  - Liste des capteurs connectés
+  - Applications déployées
+  - Logs spécifiques au hub
 
-Continue building your app on:
+### Gestion des Capteurs
+- Liste de tous les capteurs avec filtrage
+- Validation des nouveaux capteurs détectés
+- Informations détaillées sur chaque capteur
+- Visualisation des dernières valeurs mesurées
 
-**[https://v0.dev/chat/projects/3tC2yQLiLLn](https://v0.dev/chat/projects/3tC2yQLiLLn)**
+### Demandes d'accès
+- Liste des demandes d'accès aux données des capteurs
+- Interface pour approuver ou refuser les demandes
+- Historique des demandes traitées
 
-## How It Works
+### Logs & Événements
+- Journal centralisé des événements du système
+- Filtrage par niveau (info, avertissement, erreur) et par source
+- Export des logs pour analyse
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Installation et démarrage
+
+### Prérequis
+- Node.js 18.x ou supérieur
+- npm ou yarn
+
+### Installation
+
+1. Cloner le dépôt
+```bash
+git clone https://github.com/votre-organisation/plp-web-interface.git
+cd plp-web-interface
