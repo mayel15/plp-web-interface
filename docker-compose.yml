@@ -1,12 +1,7 @@
-
-## Docker Compose et fichiers associés
-
-```md project="plp-web-interface" file="docker-compose.yml" type="markdown"
 version: '3.8'
 
 services:
-  # Interface web Next.js
-  web-interface:
+  frontend:
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,100 +9,5 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=http://api:8080/api
-    depends_on:
-      - api
-    networks:
-      - iot-network
+      - NEXT_PUBLIC_API_URL=http://votre-api-url.com/api  # Remplacez par l'URL de votre API
     restart: unless-stopped
-
-  # API Backend (simulé avec json-server pour le développement)
-  api:
-    image: node:18-alpine
-    working_dir: /app
-    volumes:
-      - ./mock-api:/app
-    command: >
-      sh -c "npm install -g json-server && 
-             json-server --watch db.json --port 8080 --host 0.0.0.0 --routes routes.json --middlewares auth.js"
-    ports:
-      - "8080:8080"
-    networks:
-      - iot-network
-    restart: unless-stopped
-
-  # Base de données PostgreSQL pour les métadonnées
-  postgres:
-    image: postgres:15-alpine
-    environment:
-      POSTGRES_USER: iotadmin
-      POSTGRES_PASSWORD: iotpassword
-      POSTGRES_DB: iotplatform
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    networks:
-      - iot-network
-    restart: unless-stopped
-
-  # InfluxDB pour les données de séries temporelles
-  influxdb:
-    image: influxdb:2.7
-    environment:
-      - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_USERNAME=iotadmin
-      - DOCKER_INFLUXDB_INIT_PASSWORD=iotpassword
-      - DOCKER_INFLUXDB_INIT_ORG=iotorg
-      - DOCKER_INFLUXDB_INIT_BUCKET=iotsensors
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=iottoken
-    volumes:
-      - influxdb-data:/var/lib/influxdb2
-    ports:
-      - "8086:8086"
-    networks:
-      - iot-network
-    restart: unless-stopped
-
-  # Broker MQTT (Mosquitto)
-  mqtt:
-    image: eclipse-mosquitto:2
-    volumes:
-      - ./mosquitto/config:/mosquitto/config
-      - mosquitto-data:/mosquitto/data
-      - mosquitto-log:/mosquitto/log
-    ports:
-      - "1883:1883"  # MQTT
-      - "9001:9001"  # MQTT over WebSockets
-    networks:
-      - iot-network
-    restart: unless-stopped
-
-  # Simulateur de hub Raspberry Pi (pour le développement)
-  hub-simulator:
-    image: python:3.11-alpine
-    working_dir: /app
-    volumes:
-      - ./hub-simulator:/app
-    command: >
-      sh -c "pip install paho-mqtt requests && python simulator.py"
-    environment:
-      - MQTT_BROKER=mqtt
-      - MQTT_PORT=1883
-      - API_URL=http://api:8080/api
-    depends_on:
-      - mqtt
-      - api
-    networks:
-      - iot-network
-    restart: unless-stopped
-
-networks:
-  iot-network:
-    driver: bridge
-
-volumes:
-  postgres-data:
-  influxdb-data:
-  mosquitto-data:
-  mosquitto-log:
