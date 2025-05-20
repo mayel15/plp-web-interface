@@ -73,5 +73,11 @@ cd plp-web-interface
 2. Lancer Docker
 
 ```bash
-docker-compose up -d
+sudo docker-compose up -d
 ```
+
+```bash
+sudo docker run -p '4222:3000 plp-web-interface_frontend
+```
+
+3. Le serveur tournera en localhost `https://localhost:4200`
