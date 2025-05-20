@@ -14,7 +14,7 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/mayel15s-projects/v0-plp-web-interface](https://vercel.com/mayel15s-projects/v0-plp-web-interface)**
+**[https://vercel.com/mayel15s-projects/v0-plp-web-interface](https://vercel.com/mayel15s-projects/plp-web-interface)**
 
 ## Build your app
 
