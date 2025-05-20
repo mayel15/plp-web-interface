@@ -14,7 +14,7 @@ RUN npm install -f
 RUN npm run build
 
 # Expose le port utilisé par Next.js
-EXPOSE 3000
+EXPOSE 4200
 
 # Démarre l’application
 CMD ["npm", "start"]

@@ -74,3 +74,4 @@ cd plp-web-interface
 
 ```bash
 docker-compose up -d
+```
