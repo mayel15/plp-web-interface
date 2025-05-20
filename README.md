@@ -80,4 +80,6 @@ sudo docker-compose up -d
 sudo docker run -p {port-sur-lequel-ecouter}:3000 plp-web-interface_frontend
 ```
 
+exemple => `4222:3000`
+
 3. Le serveur tournera en localhost `https://localhost:4200`
