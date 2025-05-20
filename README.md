@@ -77,7 +77,7 @@ sudo docker-compose up -d
 ```
 
 ```bash
-sudo docker run -p '4222:3000 plp-web-interface_frontend
+sudo docker run -p {port-sur-lequel-ecouter}:3000 plp-web-interface_frontend
 ```
 
 3. Le serveur tournera en localhost `https://localhost:4200`
